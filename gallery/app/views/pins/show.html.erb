@@ -5,15 +5,21 @@
   <%= @pin.title %>
 </p>
 
+<% if @pin.image.attached? %>
+
 <div style="width:400px; height:auto">
    <%= link_to image_tag(@pin.image, style:'width:100%'),
    pins_path %>
 </div>
+
+<% end %>
 
 <p>
   <strong>Caption:</strong>
   <%= @pin.caption %>
 </p>
 
-<%= link_to 'Edit', edit_pin_path(@pin) %> |
-<%= link_to 'Back', pins_path %>
+<div>
+  <%= link_to 'Edit', edit_pin_path(@pin), class:'btn btn-info' %>
+  <%= link_to 'Back', pins_path, class:'btn btn-primary' %>
+</div>
